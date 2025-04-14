@@ -1,0 +1,28 @@
+## Variablea
+@BaseUrl = localhost:5293
+
+
+### GET request
+GET {{BaseUrl}}/api/employees
+Content-Type: application/json
+
+###
+POST {{BaseUrl}}/api/employees
+Content-Type: application/json
+
+{
+  "name": "Greg",
+  "role": "engineer"
+}
+
+### By ID
+GET {{BaseUrl}}/api/employees/<>
+Content-Type: application/json
+
+### By Role
+GET {{BaseUrl}}/api/employees/recent/role/engineer
+Content-Type: application/json
+
+### DELETE By Id
+DELETE {{BaseUrl}}/api/employees/<>
+Content-Type: application/json
