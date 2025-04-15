@@ -16,7 +16,7 @@ This repo has the exam ples of using .NET with Web Api, Data EF Core  to use Coc
 - Go the Project:
 
     ```shell
-    cd my-solution-folder
+    cd csharp-payroll-example
     dotnet restore
     dotnet build
     dotnet run --project Payroll.Web.Api
