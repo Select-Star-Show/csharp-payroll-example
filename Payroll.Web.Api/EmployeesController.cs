@@ -1,9 +1,8 @@
-using Microsoft.EntityFrameworkCore;
-using Payroll.Data.Ef;
-
 namespace Payroll.Web.Api;
 
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Payroll.Data.Ef;
 using Payroll.Library;
 
 

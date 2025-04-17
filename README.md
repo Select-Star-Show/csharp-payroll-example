@@ -11,7 +11,8 @@ This repo has the exam ples of using .NET with Web Api, Data EF Core  to use Coc
     ```
 - Create the Database `payroll` and add the table `employees`:
     ```shell
-    cockroach sql --insecure -e "CREATE DATABASE payroll; CREATE TABLE employees (id uuid NOT NULL DEFAULT (gen_random_uuid()), name text  NOT NULL, role text NOT NULL, CONSTRAINT 'PK_employees' PRIMARY KEY (id));"
+    cockroach sql --insecure -e "CREATE DATABASE payroll;"
+    cockroach sql --insecure -d payroll -e "CREATE TABLE employees (id uuid NOT NULL DEFAULT (gen_random_uuid()), name text NOT NULL, role text NOT NULL, CONSTRAINT PK_employees PRIMARY KEY (id));"
     ```
 - Go the Project:
 
