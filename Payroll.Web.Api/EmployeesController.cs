@@ -46,6 +46,16 @@ public class EmployeesController : ControllerBase
         return Ok();
     }
     
+    
+    [HttpGet("recent/role/{role}")]
+    public async Task<IActionResult> GetRecentByRole(
+        string role)
+    {
+        var employees = await _employeeService.GetRecentByRoleAsync(role);
+        return Ok(employees);
+    }
+    
+    /*
     [HttpGet("recent/role/{role}")]
     public async Task<IActionResult> GetRecentByRole(string role, [FromServices] PayrollDbContext dbContext)
     {
@@ -58,5 +68,6 @@ public class EmployeesController : ControllerBase
 
         return Ok(results);
     }
+    */
 
 }

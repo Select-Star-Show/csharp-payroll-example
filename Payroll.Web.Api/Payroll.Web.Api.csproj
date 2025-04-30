@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Payroll.Library\Payroll.Library.csproj" />
     <ProjectReference Include="..\Payroll.Data.Ef\Payroll.Data.Ef.csproj" />
+    <ProjectReference Include="..\Payroll.Data.Ado\Payroll.Data.Ado.csproj" />
   </ItemGroup>
 
   <ItemGroup>

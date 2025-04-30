@@ -9,25 +9,20 @@ public class DbInitialize
     public static async Task SeedEmployeesAsync(IServiceProvider services)
     {
         using var scope = services.CreateScope();
-        var db = scope.ServiceProvider.GetRequiredService<PayrollDbContext>();
+        var db = scope.ServiceProvider.GetRequiredService<EmployeeService>();
 
-        if (!await db.Employees.AnyAsync())
+        var felipe = new Employee
         {
-            db.Employees.AddRange(new List<Employee>
-            {
-                new Employee
-                {
-                    Name = "Felipe",
-                    Role = "advocate"
-                },
-                new Employee
-                {
-                    Name = "Glen",
-                    Role = "engineer"
-                }
-            });
-
-            await db.SaveChangesAsync();
-        }
+            Name = "Felipe",
+            Role = "advocate"
+        };
+        await db.CreateAsync(felipe);
+        
+        var glen = new Employee
+        {
+            Name = "Glen",
+            Role = "engineer"
+        };
+        await db.CreateAsync(glen);
     }
 }

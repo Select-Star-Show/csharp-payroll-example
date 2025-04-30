@@ -52,4 +52,9 @@ public class EmployeeService
         await _repository.DeleteAsync(id);
         await _repository.SaveChangesAsync();
     }
+    
+    public Task<IEnumerable<Employee>> GetRecentByRoleAsync(string role)
+    {
+        return _repository.GetRecentByRoleAsync(role);
+    }
 }

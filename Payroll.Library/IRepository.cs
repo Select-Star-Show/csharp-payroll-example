@@ -20,4 +20,7 @@ public interface IRepository<TEntity, TId> where TEntity : class
 
     // Optional: Save changes if needed outside unit-of-work
     Task<int> SaveChangesAsync();
+    
+    // Optional: Get recent records by role
+    Task<IEnumerable<TEntity>> GetRecentByRoleAsync(string role);
 }

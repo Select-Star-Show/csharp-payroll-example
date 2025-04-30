@@ -56,4 +56,12 @@ public class EmployeeEfRepository<TEntity, TId> : IRepository<TEntity, TId>
     {
         return _dbContext.SaveChangesAsync();
     }
+    
+    public async Task<IEnumerable<TEntity>> GetRecentByRoleAsync(string role)
+    {
+        // NOTE: Parameterized to avoid SQL injection
+        const string sql = @"SELECT * FROM employees AS OF SYSTEM TIME '-30s' WHERE role = @p0";
+
+        return await _dbSet.FromSqlRaw(sql, role).ToListAsync();
+    }
 }
