@@ -12,10 +12,22 @@ string? dataAccessTech = args
     .Skip(1)
     .FirstOrDefault()?.ToLowerInvariant() ?? "adonet"; // default fallback
 
+string? portArg = args
+    .SkipWhile(a => a != "--port")
+    .Skip(1)
+    .FirstOrDefault();
 
-
-// Step 1. Create the Web App Builder
+// Step 1. Create the Web App Builder with dynamic port
 var builder = WebApplication.CreateBuilder(args);
+
+// Optional: custom port
+if (!string.IsNullOrWhiteSpace(portArg) && int.TryParse(portArg, out int port))
+{
+    builder.WebHost.ConfigureKestrel(serverOptions =>
+    {
+        serverOptions.ListenAnyIP(port);
+    });
+}
 
 // Step 2,3. Register the Data Access Layer
 switch (dataAccessTech)
